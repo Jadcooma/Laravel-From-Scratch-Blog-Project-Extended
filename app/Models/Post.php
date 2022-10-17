@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Date;
 
 class Post extends Model
 {
@@ -31,6 +32,16 @@ class Post extends Model
                 $query->where('username', $author)
             )
         );
+    }
+
+    /**
+     * Get the Post's date of publication
+     * @param string $value
+     * @return \Illuminate\Support\Carbon
+     */
+    protected function getPublishedAtAttribute($value)
+    {
+        return Date::create($value);
     }
 
     public function comments()
