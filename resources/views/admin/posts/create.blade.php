@@ -1,8 +1,11 @@
 <x-layout>
     <x-setting heading="Publish New Post">
-        <form method="POST" action="/admin/posts" enctype="multipart/form-data">
+        <form method="POST" action="/admin/posts" enctype="multipart/form-data"
+              x-data @submit.prevent="$refs.published.value = $event.submitter.dataset.published; $event.target.submit();"
+        >
             @csrf
 
+            <input type="hidden" name="published" x-ref="published"/>
             <x-form.input name="title" required />
             <x-form.input name="slug" required />
             <x-form.input name="thumbnail" type="file" required />
@@ -24,7 +27,10 @@
                 <x-form.error name="category"/>
             </x-form.field>
 
-            <x-form.button>Publish</x-form.button>
+            <div class="md:flex md:justify-evenly">
+                <x-form.button data-published="0" color="gray">Save as Draft</x-form.button>
+                <x-form.button data-published="1">Publish</x-form.button>
+            </div>
         </form>
     </x-setting>
 </x-layout>

@@ -1,9 +1,12 @@
 <x-layout>
-    <x-setting :heading="'Edit Post: ' . $post->title">
-        <form method="POST" action="/admin/posts/{{ $post->id }}" enctype="multipart/form-data">
+    <x-setting :heading="'Edit Post: ' . $post->title . ($post->published ? '' : ' [DRAFT]')">
+        <form method="POST" action="/admin/posts/{{ $post->id }}" enctype="multipart/form-data"
+            x-data @submit.prevent="$refs.published.value = $event.submitter.dataset.published; $event.target.submit();"
+        >
             @csrf
             @method('PATCH')
 
+            <input type="hidden" name="published" x-ref="published"/>
             <x-form.input name="title" :value="old('title', $post->title)" required />
             <x-form.input name="slug" :value="old('slug', $post->slug)" required />
 
@@ -33,7 +36,14 @@
                 <x-form.error name="category"/>
             </x-form.field>
 
-            <x-form.button>Update</x-form.button>
+            <div class="md:flex md:justify-evenly">
+                @if (!($post->published))
+                    <x-form.button data-published="0" color="gray">Save as Draft</x-form.button>
+                @endif
+                <x-form.button data-published="1">
+                    {{ $post->published ? 'Update' : 'Publish' }}
+                </x-form.button>
+            </div>
         </form>
     </x-setting>
 </x-layout>
