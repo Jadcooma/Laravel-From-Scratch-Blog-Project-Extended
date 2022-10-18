@@ -7,6 +7,22 @@
             @method('PATCH')
 
             <input type="hidden" name="published" x-ref="published"/>
+
+            <x-form.field>
+                <x-form.label name="author"/>
+
+                <select name="user_id" id="user_id" required>
+                    @foreach (\App\Models\User::all() as $user)
+                        <option
+                            value="{{ $user->id }}"
+                            {{ $user->id == $post->user_id ? 'selected' : '' }}
+                        >{{ ucwords($user->name) }}</option>
+                    @endforeach
+                </select>
+
+                <x-form.error name="author"/>
+            </x-form.field>
+
             <x-form.input name="title" :value="old('title', $post->title)" required />
             <x-form.input name="slug" :value="old('slug', $post->slug)" required />
 
