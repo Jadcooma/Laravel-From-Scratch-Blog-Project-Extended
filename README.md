@@ -39,7 +39,7 @@ steps further. Here are some quick ideas that you might play with.
 
 1. ✅ Add a `status` column to the posts table to allow for posts that are still in a "draft" state. Only when this status is changed to "published" should they show up in the blog feed. <br> 
 **Extra's:** badge "published/draft" in dashboard - show publication date instead of creation date
-2. Update the "Edit Post" page in the admin section to allow for changing the author of a post.
+2. ✅ Update the "Edit Post" page in the admin section to allow for changing the author of a post.
 3. Add an RSS feed that lists all posts in chronological order.
 4. Record/Track and display the "views_count" for each post.
 5. Allow registered users to "follow" certain authors. When they publish a new post, an email should be delivered to all followers.
