@@ -9,6 +9,8 @@
                     <time>{{ $post->published_at->diffForHumans() }}</time>
                 </p>
 
+                <x-post-views-counter :post="$post"/>
+
                 <div class="flex items-center lg:justify-center text-sm mt-4">
                     <img src="/images/lary-avatar.svg" alt="Lary avatar">
                     <div class="ml-3 text-left">
