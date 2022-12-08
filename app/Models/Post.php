@@ -35,6 +35,16 @@ class Post extends Model
     }
 
     /**
+     * Increment the Posts's views count
+     * @return boolean Returns true when succesfull or false otherwise
+     */
+    public function incrementViewsCount()
+    {
+        $this->views_count++;
+        $this->save();
+    }
+
+    /**
      * Get the Post's date of publication
      * @param string $value
      * @return \Illuminate\Support\Carbon
