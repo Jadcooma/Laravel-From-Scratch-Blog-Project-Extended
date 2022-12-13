@@ -45,3 +45,5 @@ steps further. Here are some quick ideas that you might play with.
 5. Allow registered users to "follow" certain authors. When they publish a new post, an email should be delivered to all followers.
 6. Allow registered users to "bookmark" certain posts that they enjoyed. Then display their bookmarks in a corresponding settings page.
 7. Add an account page to update your username and upload an avatar for your profile.
+
+✅ Feature: Enable rich Post text editing with the [Trix editor by Basecamp](https://www.trix-editor.org)
