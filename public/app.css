@@ -1,17 +1,49 @@
-body {
-    background: white;
-    color: #222222;
-    max-width: 600px;
-    margin: auto;
-    font-family: sans-serif;
+/* Trix Editor: Overriding the defaults set by Tailwind */
+.trix {
+    width: 100%;
 }
 
-p {
-    line-height: 1.6;
+.trix h1 {
+    font-size: 1.25rem !important;
+    line-height: 1.25rem !important;
+    margin-bottom: 1rem;
+    font-weight: 600;
 }
 
-article + article {
-    margin-top: 3rem;
-    padding-top: 3rem;
-    border-top: 1px solid #c5c5c5;
+.trix a:not(.no-underline) {
+    text-decoration: underline;
+}
+
+.trix a:visited {
+    color: green;
+}
+
+.trix ul {
+    list-style-type: disc;
+    padding-left: 1rem;
+}
+
+.trix ol {
+    list-style-type: decimal;
+    padding-left: 1rem;
+}
+
+.trix pre {
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    font-family: monospace;
+    font-size: 1.5em;
+    padding: 0.5em;
+    white-space: pre;
+    background-color: #eee;
+    overflow-x: auto;
+}
+
+.trix blockquote {
+    border: 0 solid #ccc;
+    border-left-width: 0px;
+    border-left-width: 0.3em;
+    margin-left: 0.3em;
+    padding-left: 0.6em;
 }
