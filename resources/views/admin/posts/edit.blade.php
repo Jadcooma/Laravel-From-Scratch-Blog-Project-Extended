@@ -7,6 +7,7 @@
             @method('PATCH')
 
             <input type="hidden" name="published" x-ref="published"/>
+            <input type="hidden" name="body" id="body" value="{{ $post->body }}">
 
             <x-form.field>
                 <x-form.label name="author"/>
@@ -35,7 +36,7 @@
             </div>
 
             <x-form.textarea name="excerpt" required>{{ old('excerpt', $post->excerpt) }}</x-form.textarea>
-            <x-form.textarea name="body" required>{{ old('body', $post->body) }}</x-form.textarea>
+            <x-form.editor name="body" />
 
             <x-form.field>
                 <x-form.label name="category"/>

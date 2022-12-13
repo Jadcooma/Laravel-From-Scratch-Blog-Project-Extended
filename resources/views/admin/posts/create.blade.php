@@ -6,11 +6,12 @@
             @csrf
 
             <input type="hidden" name="published" x-ref="published"/>
+            <input type="hidden" name="body" id="body">
             <x-form.input name="title" required />
             <x-form.input name="slug" required />
             <x-form.input name="thumbnail" type="file" required />
             <x-form.textarea name="excerpt" required />
-            <x-form.textarea name="body" required />
+            <x-form.editor name="body" />
 
             <x-form.field>
                 <x-form.label name="category"/>
